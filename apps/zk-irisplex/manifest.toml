@@ -1,0 +1,22 @@
+# ZK Program Manifest for zk-irisplex
+# This manifest defines the structure of the payload output for this zk program
+
+[program]
+name = "zk-irisplex"
+version = "0.1.0"
+description = "IrisPlex eye color prediction from genomic data"
+
+[output]
+# The output structure always includes sequencer_id and nullifier
+# The payload structure is defined below
+
+[output.payload]
+# The payload is an IrisPlexResult struct with the following fields:
+type = "IrisPlexResult"
+
+[output.payload.fields]
+blue_probability = { type = "f64", description = "Probability of blue eye color" }
+brown_probability = { type = "f64", description = "Probability of brown eye color" }
+intermediate_probability = { type = "f64", description = "Probability of intermediate eye color" }
+predicted_color = { type = "String", description = "Predicted eye color (Blue, Brown, or Intermediate)" }
+confidence = { type = "f64", description = "Confidence score for the prediction" }

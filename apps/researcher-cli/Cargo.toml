@@ -1,0 +1,32 @@
+[package]
+name = "researcher-cli"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "researcher"
+path = "src/main.rs"
+
+[dependencies]
+zeenome-core = { path = "../../libs/zeenome-core" }
+clap.workspace = true
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+dotenv.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+base64.workspace = true
+chrono.workspace = true
+sha2.workspace = true
+hex.workspace = true
+sp1-sdk.workspace = true
+sp1-verifier.workspace = true
+bincode.workspace = true
+reqwest.workspace = true
+
+[dev-dependencies]
+assert_cmd = "2.2.2"
+predicates = "3.1.4"

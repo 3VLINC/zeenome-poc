@@ -1,0 +1,4 @@
+# Orchestrator / CLI outputs written into the directory you run from
+/state/
+/snapshots/
+/data/

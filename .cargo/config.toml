@@ -1,0 +1,19 @@
+# Reduce build parallelism to avoid race conditions with SP1's optional dependencies
+# This prevents intermittent build failures with crates like:
+# - k256, p256, elliptic_curve (elliptic curve libraries)
+# - p3-field, p3-matrix (polynomial field libraries)
+#
+# SP1 has complex optional feature dependencies that can cause build order issues
+# when building in parallel. Reducing parallelism ensures dependencies are
+# resolved before dependent crates are built.
+#
+# You can also override this per-command: cargo build -j 4
+#
+# Keep Cargo artifacts under a stable workspace path in all environments
+# (local machine, remote hosts, containers, CI, and Cursor cloud sandboxes).
+# Some upstream build scripts assume OUT_DIR includes a `target` path segment;
+# this avoids sandbox-specific defaults like `cargo-target` that can break them.
+
+[build]
+jobs = 4
+target-dir = "target/cargo"

@@ -1,0 +1,6 @@
+# Pins the workspace default Rust for everyone using rustup (local, CI, Cursor sandboxes).
+# Without this, rustup may report: "no default toolchain configured" when `cargo` is run
+# from a clean install. `rustup` auto-installs `stable` on first `cargo`/`rustc` in this tree.
+[toolchain]
+# SP1 6.x crates require Rust 1.91+; pin for reproducible host Cargo/rustc.
+channel = "1.91.0"

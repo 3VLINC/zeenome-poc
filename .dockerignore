@@ -1,0 +1,46 @@
+# Rust build artifacts (Cargo.lock is required for reproducible `cargo build --locked`)
+# Root workspace target/ plus per-member `apps/*/target/`, `libs/*/target/` (not matched by `target/` alone).
+target/
+**/target/
+
+# Turbo prune output (re-generated in Docker builds)
+out/
+
+# Host dependencies (always reinstalled in the image)
+node_modules
+**/node_modules
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+*.md
+
+# Test files
+tests/
+examples/
+
+# Temporary files
+*.tmp
+*.log
+
+# Docker metadata (not needed inside images)
+.dockerignore

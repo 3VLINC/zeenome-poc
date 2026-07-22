@@ -1,0 +1,19 @@
+{
+  "name": "zeenome-poc",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT OR Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "demo": "tsx src/run.ts",
+    "gen-keys": "tsx scripts/gen-sample-keys.ts"
+  },
+  "dependencies": {
+    "zeenome-poc-signing": "file:../../packages/signing",
+    "tsx": "^4.19.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.3",
+    "typescript": "^5.9.3"
+  }
+}

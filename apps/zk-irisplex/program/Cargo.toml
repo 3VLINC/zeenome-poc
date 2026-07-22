@@ -1,0 +1,14 @@
+[package]
+version = "0.1.0"
+name = "zk-irisplex-program"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[lib]
+name = "zk_irisplex_program"
+
+[dependencies]
+zeenome-core = { path = "../../../libs/zeenome-core", features = ["sp1"], default-features = false }
+sp1-zkvm.workspace = true
+serde.workspace = true
+thiserror.workspace = true

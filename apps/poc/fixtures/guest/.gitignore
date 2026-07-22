@@ -1,0 +1,4 @@
+# Built locally / in Docker — do not commit.
+program.elf
+*
+!.gitignore

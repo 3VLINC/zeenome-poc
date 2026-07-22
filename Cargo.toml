@@ -1,0 +1,73 @@
+[workspace]
+members = [
+    "apps/client-cli",
+    "apps/clinician-cli",
+    "apps/researcher-cli",
+    "apps/accreditor-cli",
+    "libs/client-core",
+    "apps/zk-irisplex/program",
+    "apps/zk-irisplex/scripts",
+    "libs/zeenome-core",
+]
+resolver = "2"
+
+[workspace.dependencies]
+# Core serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Async runtime
+tokio = { version = "1.0", features = ["full"] }
+
+# CLI
+clap = { version = "4.0", features = ["derive", "env"] }
+
+# Time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Environment
+dotenv = "0.15.0"
+
+# Logging
+tracing = "0.1.40"
+tracing-subscriber = "0.3"
+
+# Crypto & encoding
+sha2 = "0.10"
+sha3 = "0.10"
+hex = "0.4.3"
+base64 = "0.21"
+ed25519-dalek = { version = "2.1", features = ["serde", "rand_core"] }
+rand = "0.8"
+rand_core = "0.6"
+
+# Serialization
+bincode = "1"
+
+# SP1 SDK (keep all sp1-* crates on the same release line)
+sp1-sdk = { version = "6.1.0", features = ["blocking"] }
+sp1-build = "6.1.0"
+sp1-zkvm = "6.1.0"
+sp1-verifier = "6.1.0"
+
+# HTTP client (pinned for client-cli registry bundle fetch)
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+
+# Merkle trees (default features disabled)
+rs_merkle = { version = "1.5.0", default-features = false }
+
+jsonschema = "0.26"
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+

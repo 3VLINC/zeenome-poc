@@ -1,0 +1,15 @@
+# Rust build artifacts
+target/
+**/target/
+
+# Node
+node_modules/
+**/node_modules/
+
+# POC runtime output + fetched guest ELF
+/work/
+apps/poc/fixtures/guest/program.elf
+
+# OS/editor
+.DS_Store
+*.swp

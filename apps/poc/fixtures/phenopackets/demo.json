@@ -1,0 +1,15 @@
+{
+  "id": "phenopacket-poc-demo",
+  "subject": { "id": "cli-poc-001", "sex": "UNKNOWN_SEX" },
+  "phenotypic_features": [
+    {
+      "type": { "id": "HP:0012298", "label": "Long middle phalanx of finger" },
+      "excluded": false
+    }
+  ],
+  "meta_data": {
+    "created": "2026-01-01T00:00:00Z",
+    "created_by": "zeenome-poc",
+    "phenopacket_schema_version": "2.0"
+  }
+}

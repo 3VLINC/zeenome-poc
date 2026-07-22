@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "clinician": {
+    "id": "poc-clinician",
+    "display_name": "POC Clinician",
+    "public_key": "8a88e3dd7409f195fd52db2d3cba5d72ca6709bf1d94121bf3748801b40f6f5c",
+    "private_key": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQGKiOPddAnxlf1S2y08ul1yymcJvx2UEhvzdIgBtA9vXA=="
+  },
+  "researcher": {
+    "id": "poc-researcher",
+    "display_name": "POC Researcher",
+    "public_key": "8139770ea87d175f56a35466c34c7ecccb8d8a91b4ee37a25df60f5b8fc9b394",
+    "private_key": "AgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKBOXcOqH0XX1ajVGbDTH7My42KkbTuN6Jd9g9bj8mzlA=="
+  },
+  "accreditor": {
+    "id": "poc-accreditor",
+    "display_name": "POC Accreditor",
+    "public_key": "ed4928c628d1c2c6eae90338905995612959273a5c63f93636c14614ac8737d1",
+    "private_key": "AwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwPtSSjGKNHCxurpAziQWZVhKVknOlxj+TY2wUYUrIc30Q=="
+  },
+  "client": {
+    "id": "cli-poc-001"
+  },
+  "catalog_sample_id": "ERR3239292/NA11894",
+  "job_id": "poc-job-001",
+  "whitelist_id": "poc-wl-bootstrap"
+}
