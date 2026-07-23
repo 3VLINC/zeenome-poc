@@ -1,8 +1,8 @@
 # Build and publish the zeenome-poc image to Docker Hub.
 #
 # Tags:
-#   3vlinc/zeenome-poc:latest   3vlinc/zeenome-poc:<sha>
-#   threevl/zeenome-poc:latest  threevl/zeenome-poc:<sha>   (secondary, same secrets)
+#   threevl/zeenome-poc:latest  threevl/zeenome-poc:<sha>
+#   (optional secondary namespace via the SECONDARY_NAMESPACE variable, same token)
 #
 # Credentials live in the `dev` GitHub environment:
 #   DOCKERHUB_USERNAME  -> environment variable  (vars.DOCKERHUB_USERNAME)
@@ -26,10 +26,10 @@ on:
 
 env:
   IMAGE_NAME: zeenome-poc
-  PRIMARY_NAMESPACE: 3vlinc
-  # Optional extra Hub namespace (e.g. threevl). Only set this if the same token
+  PRIMARY_NAMESPACE: threevl
+  # Optional extra Hub namespace (e.g. 3vlinc). Only set this if the same token
   # can also write there, else the push fails. Configure as repo/env variable
-  # SECONDARY_NAMESPACE to enable; empty means push 3vlinc only.
+  # SECONDARY_NAMESPACE to enable; empty means push threevl only.
   SECONDARY_NAMESPACE: ${{ vars.SECONDARY_NAMESPACE }}
 
 jobs:
