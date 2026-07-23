@@ -4,9 +4,11 @@
 #   3vlinc/zeenome-poc:latest   3vlinc/zeenome-poc:<sha>
 #   threevl/zeenome-poc:latest  threevl/zeenome-poc:<sha>   (secondary, same secrets)
 #
-# Required repository secrets: DOCKERHUB_USERNAME, DOCKERHUB_TOKEN.
-# Until those are set the workflow still runs but only builds (no push), so the
-# first run after adding this file is green rather than a failed login.
+# Credentials live in the `dev` GitHub environment:
+#   DOCKERHUB_USERNAME  -> environment variable  (vars.DOCKERHUB_USERNAME)
+#   DOCKERHUB_TOKEN     -> environment secret     (secrets.DOCKERHUB_TOKEN)
+# Until the token is set the workflow still runs but only builds (no push), so a
+# run without credentials is green rather than a failed login.
 
 name: Docker publish
 
@@ -31,6 +33,9 @@ jobs:
   build-and-push:
     name: Build and push zeenome-poc
     runs-on: ubuntu-latest
+    # DOCKERHUB_USERNAME (variable) and DOCKERHUB_TOKEN (secret) live in the `dev`
+    # environment, so the job must opt into it to read them.
+    environment: dev
     permissions:
       contents: read
     steps:
@@ -85,7 +90,7 @@ jobs:
         if: steps.meta.outputs.push == 'true'
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
