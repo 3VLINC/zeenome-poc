@@ -27,7 +27,10 @@ on:
 env:
   IMAGE_NAME: zeenome-poc
   PRIMARY_NAMESPACE: 3vlinc
-  SECONDARY_NAMESPACE: threevl
+  # Optional extra Hub namespace (e.g. threevl). Only set this if the same token
+  # can also write there, else the push fails. Configure as repo/env variable
+  # SECONDARY_NAMESPACE to enable; empty means push 3vlinc only.
+  SECONDARY_NAMESPACE: ${{ vars.SECONDARY_NAMESPACE }}
 
 jobs:
   build-and-push:
@@ -48,8 +51,8 @@ jobs:
         uses: data-intuitive/reclaim-the-bytes@v2
         with:
           remove-dotnet: true
-          remove-android: true
-          remove-haskell: true
+          remove-android-sdk: true
+          remove-haskell-ghc: true
           remove-docker-images: true
 
       - name: Set up Docker Buildx
@@ -75,6 +78,7 @@ jobs:
 
           tags=()
           for ns in "${{ env.PRIMARY_NAMESPACE }}" "${{ env.SECONDARY_NAMESPACE }}"; do
+            [[ -z "${ns}" ]] && continue
             tags+=("${ns}/${{ env.IMAGE_NAME }}:latest")
             tags+=("${ns}/${{ env.IMAGE_NAME }}:${{ github.sha }}")
           done
